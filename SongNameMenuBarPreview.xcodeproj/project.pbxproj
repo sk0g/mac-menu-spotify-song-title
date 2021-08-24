@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38854D4126D5157A00F99E0A /* Script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 38854D4026D5157A00F99E0A /* Script.sh */; };
 		38D6BF4B26D505E00072F8C5 /* SongNameMenuBarPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D6BF4A26D505E00072F8C5 /* SongNameMenuBarPreviewApp.swift */; };
 		38D6BF4D26D505E00072F8C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D6BF4C26D505E00072F8C5 /* ContentView.swift */; };
 		38D6BF4F26D505E10072F8C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38D6BF4E26D505E10072F8C5 /* Assets.xcassets */; };
@@ -14,11 +15,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38854D4026D5157A00F99E0A /* Script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Script.sh; sourceTree = "<group>"; };
+		38854D4226D51F3500F99E0A /* SongNameMenuBarPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SongNameMenuBarPreview.entitlements; sourceTree = "<group>"; };
 		38D6BF4726D505E00072F8C5 /* SongNameMenuBarPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongNameMenuBarPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D6BF4A26D505E00072F8C5 /* SongNameMenuBarPreviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongNameMenuBarPreviewApp.swift; sourceTree = "<group>"; };
 		38D6BF4C26D505E00072F8C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		38D6BF4E26D505E10072F8C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38D6BF5126D505E10072F8C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		38D6BF5826D50BD70072F8C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +55,12 @@
 		38D6BF4926D505E00072F8C5 /* SongNameMenuBarPreview */ = {
 			isa = PBXGroup;
 			children = (
+				38854D4226D51F3500F99E0A /* SongNameMenuBarPreview.entitlements */,
+				38D6BF5826D50BD70072F8C5 /* Info.plist */,
 				38D6BF4A26D505E00072F8C5 /* SongNameMenuBarPreviewApp.swift */,
 				38D6BF4C26D505E00072F8C5 /* ContentView.swift */,
 				38D6BF4E26D505E10072F8C5 /* Assets.xcassets */,
+				38854D4026D5157A00F99E0A /* Script.sh */,
 				38D6BF5026D505E10072F8C5 /* Preview Content */,
 			);
 			path = SongNameMenuBarPreview;
@@ -125,6 +132,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38854D4126D5157A00F99E0A /* Script.sh in Resources */,
 				38D6BF5226D505E10072F8C5 /* Preview Assets.xcassets in Resources */,
 				38D6BF4F26D505E10072F8C5 /* Assets.xcassets in Resources */,
 			);
@@ -265,14 +273,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SongNameMenuBarPreview/SongNameMenuBarPreview.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SongNameMenuBarPreview/Preview Content\"";
+				DEVELOPMENT_TEAM = 3G2LQ3827M;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SongNameMenuBarPreview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Add now playing info to menu bar";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -282,6 +297,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.sk0g.SongNameMenuBarPreview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -292,14 +308,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SongNameMenuBarPreview/SongNameMenuBarPreview.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SongNameMenuBarPreview/Preview Content\"";
+				DEVELOPMENT_TEAM = 3G2LQ3827M;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SongNameMenuBarPreview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Add now playing info to menu bar";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -309,6 +332,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.sk0g.SongNameMenuBarPreview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};

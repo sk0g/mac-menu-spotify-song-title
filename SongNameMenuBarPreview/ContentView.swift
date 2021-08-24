@@ -17,28 +17,32 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+    
 }
 
 func nowPlaying() -> String {
     let script = """
     tell application "Spotify"
-        set cstate to current track's name & " - " & current track's artist
+        set cstate to current track's artist & " - " & current track's name
         return cstate
     end tell
     """
+    let stringLengthLimit = 60
+    
+    var result = ""
 
     if let scriptObject = NSAppleScript(source: script) {
         var error: NSDictionary?
         let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&error)
         if (error != nil) {
-            print("xsc error: \(String(describing:error))")
+            print("error: \(String(describing:error))")
             return "Ran into error"
         } else {
             let value = output.stringValue ?? "Not found"
-            print(value)
-            return value
+            result = value
         }
     }
 
-    return "Nothing found?"
+    return result.count <= stringLengthLimit ? result :
+        "\(result.dropLast(result.count-stringLengthLimit))..."
 }

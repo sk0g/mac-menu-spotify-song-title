@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		38854D4126D5157A00F99E0A /* Script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 38854D4026D5157A00F99E0A /* Script.sh */; };
 		38D6BF4B26D505E00072F8C5 /* SongNameMenuBarPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D6BF4A26D505E00072F8C5 /* SongNameMenuBarPreviewApp.swift */; };
 		38D6BF4D26D505E00072F8C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D6BF4C26D505E00072F8C5 /* ContentView.swift */; };
 		38D6BF4F26D505E10072F8C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38D6BF4E26D505E10072F8C5 /* Assets.xcassets */; };
@@ -15,7 +14,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		38854D4026D5157A00F99E0A /* Script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Script.sh; sourceTree = "<group>"; };
 		38854D4226D51F3500F99E0A /* SongNameMenuBarPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SongNameMenuBarPreview.entitlements; sourceTree = "<group>"; };
 		38D6BF4726D505E00072F8C5 /* SongNameMenuBarPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongNameMenuBarPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D6BF4A26D505E00072F8C5 /* SongNameMenuBarPreviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongNameMenuBarPreviewApp.swift; sourceTree = "<group>"; };
@@ -60,7 +58,6 @@
 				38D6BF4A26D505E00072F8C5 /* SongNameMenuBarPreviewApp.swift */,
 				38D6BF4C26D505E00072F8C5 /* ContentView.swift */,
 				38D6BF4E26D505E10072F8C5 /* Assets.xcassets */,
-				38854D4026D5157A00F99E0A /* Script.sh */,
 				38D6BF5026D505E10072F8C5 /* Preview Content */,
 			);
 			path = SongNameMenuBarPreview;
@@ -132,7 +129,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38854D4126D5157A00F99E0A /* Script.sh in Resources */,
 				38D6BF5226D505E10072F8C5 /* Preview Assets.xcassets in Resources */,
 				38D6BF4F26D505E10072F8C5 /* Assets.xcassets in Resources */,
 			);
@@ -293,7 +289,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.sk0g.SongNameMenuBarPreview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -328,7 +324,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.sk0g.SongNameMenuBarPreview;
 				PRODUCT_NAME = "$(TARGET_NAME)";

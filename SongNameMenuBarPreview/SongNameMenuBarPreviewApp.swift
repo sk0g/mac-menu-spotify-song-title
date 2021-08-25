@@ -23,22 +23,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var popover = NSPopover.init()
     var statusBarItem: NSStatusItem?
     static var shared : AppDelegate!
-    func applicationDidFinishLaunching(_ notification: Notification) {
-        
-        let contentView = ContentView().task {
-            self.updateTitlePeriodically()
-        }
+    var title = nowPlaying()
 
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        let contentView = ContentView()
+        
         popover.behavior = .transient
         popover.animates = false
         popover.contentViewController = NSViewController()
         popover.contentViewController?.view = NSHostingView(rootView: contentView)
         popover.contentViewController?.view.window?.makeKey()
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        statusBarItem?.button?.title = nowPlaying()
+        statusBarItem?.button?.title = title
         statusBarItem?.button?.action = #selector(AppDelegate.togglePopover(_:))
     }
-    
+
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        DispatchQueue.global().async {
+            while true {
+                self.getNowPlayingAndUpdateUI()
+            }
+        }
+    }
+
+    func getNowPlayingAndUpdateUI() {
+        Thread.sleep(forTimeInterval: 1)
+        title = nowPlaying()
+        DispatchQueue.main.async {
+            self.statusBarItem?.button?.title = self.title
+        }
+    }
+
     func applicationWillResignActive(_ notification: Notification) {
         popover.performClose(notification.self)
     }
@@ -55,12 +70,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             closePopover(sender)
         } else {
             showPopover(sender)
-        }
-    }
-    func updateTitlePeriodically() {
-        while true {
-            statusBarItem?.button?.title = nowPlaying()
-            Thread.sleep(forTimeInterval: 1)
         }
     }
 }

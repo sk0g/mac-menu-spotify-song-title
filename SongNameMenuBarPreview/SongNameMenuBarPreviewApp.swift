@@ -19,20 +19,22 @@ struct MenuBarPopoverApp: App {
         }
     }
 }
+
 class AppDelegate: NSObject, NSApplicationDelegate {
     var popover = NSPopover.init()
     var statusBarItem: NSStatusItem?
     static var shared : AppDelegate!
-    var title = nowPlaying()
+    var title = getNowPlayingInfo()
 
     func applicationWillFinishLaunching(_ notification: Notification) {
         let contentView = ContentView()
         
         popover.behavior = .transient
-        popover.animates = false
+        popover.animates = true
         popover.contentViewController = NSViewController()
         popover.contentViewController?.view = NSHostingView(rootView: contentView)
         popover.contentViewController?.view.window?.makeKey()
+
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusBarItem?.button?.title = title
         statusBarItem?.button?.action = #selector(AppDelegate.togglePopover(_:))
@@ -48,23 +50,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func getNowPlayingAndUpdateUI() {
         Thread.sleep(forTimeInterval: 1)
-        title = nowPlaying()
+        title = getNowPlayingInfo()
         DispatchQueue.main.async {
             self.statusBarItem?.button?.title = self.title
         }
     }
 
-    func applicationWillResignActive(_ notification: Notification) {
-        popover.performClose(notification.self)
-    }
     @objc func showPopover(_ sender: AnyObject?) {
         if let button = statusBarItem?.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
     }
+
     @objc func closePopover(_ sender: AnyObject?) {
         popover.performClose(sender)
     }
+    
     @objc func togglePopover(_ sender: AnyObject?) {
         if popover.isShown {
             closePopover(sender)

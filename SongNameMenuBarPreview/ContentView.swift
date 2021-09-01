@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text(nowPlaying()).padding()
+        Text(getNowPlayingInfo()).padding()
     }
 }
 
@@ -19,17 +19,16 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-func nowPlaying() -> String {
-    let script = """
-    tell application "Spotify"
-        set cstate to current track's artist & " - " & current track's name
-        return cstate
-    end tell
-    """
-    let stringLengthLimit = 60
-    
-    var result = ""
+let script = """
+tell application "Spotify"
+    set cstate to current track's artist & " - " & current track's name
+    return cstate
+end tell
+"""
 
+let stringLengthLimit = 60
+
+func getNowPlayingInfo() -> String {
     if let scriptObject = NSAppleScript(source: script) {
         var error: NSDictionary?
         let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&error)
@@ -38,10 +37,12 @@ func nowPlaying() -> String {
             return "Ran into error"
         } else {
             let value = output.stringValue ?? "Not found"
-            result = value
+            let valueCount = value.count
+
+            return valueCount <= stringLengthLimit ? value :
+                "\(value.dropLast(valueCount-stringLengthLimit))..."
         }
     }
-
-    return result.count <= stringLengthLimit ? result :
-        "\(result.dropLast(result.count-stringLengthLimit))..."
+    
+    return "?" // why would this happen, I wouldn't know. Anyway.
 }
